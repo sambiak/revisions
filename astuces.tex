@@ -1,0 +1,50 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+%opening
+\title{Astuces pour l'analyse}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+\section{coefficients binomiaux}
+\[\textstyle{n \choose k} = C^{k}_{n} = \frac{n!}{(n - k)!k!}\]
+\[\textstyle{n \choose k} + \textstyle{n \choose k + 1} = \textstyle{n + 1 \choose k + 1}\]
+\[(a + b)^{n} = \sum_{k = 0}^{n} \textstyle{n \choose k} a^{k}b^{n - k}\]
+\[\sum_{k = 0}^{n} C^{k}_{n} = 2^{n}\]
+
+\section{Linéarisation}
+Avant de dériver des fonctions trigonométriques toujours penser à linéariser.
+\begin{align*}
+sin^{3}(x) &= (\frac{e^{ix} - e^{-ix}}{2})^{3}\\
+&= \frac{e^{3ix} - 3e^{ix} + 3e^{-ix} - e^{-3ix}}{8}\\
+&= \frac{(e^{3ix} - e^{-3ix}) -(3e^{ix} - 3e^{-ix})}{8}\\
+&= \frac{2sin(3x) - 2*3sin(x)}{8}\\
+&= \frac{sin(3x)}{4} - \frac{3sin(x)}{4}
+\end{align*}
+\section{contraposé}
+\[(a + b)(a - b) = a^{2} - b^{2}\]
+\[a - b = \frac{a^{2} - b^{2}}{a + b}\]
+\section{}
+\[\frac{1}{x(1 - x)} = \frac{1}{x} + \frac{1}{1 - x}\]
+\[|\sqrt{a} - \sqrt{b}| <= \sqrt{|a - b|}\]
+\appendix
+\section{Preuves}
+\subsection{coefficients binomiaux}
+\begin{align*}
+ \textstyle{n \choose k} + \textstyle{n \choose k + 1} &= \frac{n!}{(n - k)!k!} + \frac{n!}{(n - (k + 1)!(k + 1)!}\\
+ &= \frac{n!(n - k + k + 1)}{(n - k)!(k + 1)!}\\
+ &= \frac{n!(n + 1)}{((n + 1) - (k + 1))!(k + 1)!}\\
+ &= \textstyle{n + 1 \choose k + 1}
+\end{align*}
+\[(1 + 1)^{n} = \sum_{k = 0}^{n} \textstyle{n \choose k} 1^{k}1^{n - k} = \sum_{k = 0}^{n} \textstyle{n \choose k}\]
+
+
+\end{document}
