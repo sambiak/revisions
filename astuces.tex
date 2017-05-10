@@ -32,11 +32,34 @@ sin^{3}(x) &= (\frac{e^{ix} - e^{-ix}}{2})^{3}\\
 \section{contraposé}
 \[(a + b)(a - b) = a^{2} - b^{2}\]
 \[a - b = \frac{a^{2} - b^{2}}{a + b}\]
-\section{}
+\section{Divers}
 \[\frac{1}{x(1 - x)} = \frac{1}{x} + \frac{1}{1 - x}\]
 \[|\sqrt{a} - \sqrt{b}| <= \sqrt{|a - b|}\]
+\section[Aussi nommé Théorème de Weierstrass.]{Théorème des valeurs extrêmes}
+
+
+
+Soit $[a; b]$ un intervalle fermé borné de R. Soit $f \colon [a;b] \longrightarrow \mathbb{R}$ une fonction continue sur cette intervalle. Alors
+$f([a;b])$ est une partie bornée de R et il existe $x_{1} \in [a;b]$ et $x_{2} \in [a;b]$ tels que $f(x_{1}) = sup f([a;b])$ et $f(x_{2}) = inf f([a;b])$
+
+
+
+
+
+On raisonne par l'absurde soit  $[a; b]$ un intervalle fermé borné de R. Soit $f \colon [a;b] \longrightarrow \mathbb{R}$ une fonction continue sur cette intervalle.
+On suppose que f n'est pas bornée pour simplifier la démonstration on supposera qu'elle n'est pas bornée par le haut. 
+Il existe alors $(x_{n})_{n \in \mathbb{N}}$une suite de points de $[a; b]$ tels que $f(x_{n}) > n$. 
+On a \[\lim_{n \to \infty} f(x_{n}) = +\infty\]
+Donc la suite $(f(x_{n}))_{n \in \mathbb{N}}$ diverge.
+Or comme $(x_{n})_{n \in \mathbb{N}}$ est bornée d'aprés le Théorème de bolzano-Weierstrass il existe une
+extractrice $\phi \colon \mathbb{N} \longrightarrow \mathbb{N}$ tel que $(x_{\phi(n)})_{n \in \mathbb{N}}$ converge vers une valeur $c \in [a; b]$ car 
+$[a;b]$ est bornée.
+
+Or comme $f$ est continue \[\lim_{n \to \infty} f(x_{\phi(n)}) = f(\lim_{n \to \infty} x_{\phi(n)}) = f(c)\]
+La suite $(f(x_{\phi(n)}))_{n \in \mathbb{N}}$ converge donc vers $f(c)$. Ceci est absurde car la suite $(f(x_{\phi(n)}))_{n \in \mathbb{N}}$ est
+une sous suite de $(f(x_{n}))_{n \in \mathbb{N}}$ qui diverge.
 \appendix
-\section{Preuves}
+\section{Demonstrations}
 \subsection{coefficients binomiaux}
 \begin{align*}
  \textstyle{n \choose k} + \textstyle{n \choose k + 1} &= \frac{n!}{(n - k)!k!} + \frac{n!}{(n - (k + 1)!(k + 1)!}\\
