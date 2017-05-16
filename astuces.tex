@@ -127,6 +127,7 @@ $u(x) = f(x) + \lambda (g(x) - g(a))$
 on a $u(a) = f(a)$
 
 
+
 On veut
 \begin{align*}
 f(a) &= f(b) + \lambda(g(b) - g(a))\\
@@ -147,7 +148,26 @@ donc \[f'(c) = g'(c)\frac{f(b) - f(a)}{b - a}\]
 
 \section{Théorème de heine}
 Toute fonction continue sur $[a;b]$ intervalle de $\mathbb{R}$ est uniformément continue sur ce segment.
-
+\section{Théorème de leibinz}
+Soit n un entier positif. Le produit de deux fonctions dérivables jusqu'a l'ordre n est dérivable jusqu'a l'ordre n et
+\[(fg)^{n} = \sum_{k = 0}^{n}C^{k}_{n}f^{(k)}g^{(n-k)}\]
+\subsection{dèmo}
+On démontre par réccurence.
+\subsubsection[cela marche pas]{Intitialisation}
+\[(fg)^{0} = \sum_{k = 0}^{0}C^{0}_{0}f^{(0)}g^{(0-0)} = fg\]
+\subsubsection{hérédité}
+On a \[(fg)^{n} = \sum_{k = 0}^{n}C^{k}_{n}f^{(k)}g^{(n-k)}\] supposons que f et g soient dérivables a l'ordre n + 1.
+$(fg)^{n}$ est donc une somme de produits de fonctions dérivables. $(fg)^{n}$ est donc dérivable et ca dérivée vaut.
+\begin{align*}
+(fg)^{n + 1} &= \sum_{k = 0}^{n}C^{k}_{n}(f^{(k + 1)}g^{(n-k)} + f^{(k)}g^{(n + 1 -k)})\\
+&= \sum_{k = 0}^{n}C^{k}_{n}f^{(k + 1)}g^{(n-k)} + C^{k}_{n}f^{(k)}g^{(n + 1 -k)})\\
+&= \sum_{k = 0}^{n}C^{k}_{n}f^{(k + 1)}g^{(n-k)} + \sum_{k = 0}^{n}C^{k}_{n}f^{(k)}g^{(n + 1 -k)}\\
+&= \sum_{j = 1}^{n + 1}C^{j - 1}_{n}f^{(j)}g^{(n + 1 -j)} + \sum_{k = 0}^{n}C^{k}_{n}f^{(k)}g^{(n + 1 -k)}\\
+&=C^{n}_{n}f^{n + 1}g^{0} +  \sum_{j = 1}^{n}C^{j - 1}_{n}f^{(j)}g^{(n + 1 -j)} + \sum_{k = 1}^{n}C^{k}_{n}f^{(k)}g^{(n + 1 -k)} + C^{0}_{n}f^{(0)}g^{(n + 1)}\\
+&=C^{n + 1}_{n + 1}f^{n + 1}g^{0} +  \sum_{j = 1}^{n}(C^{j - 1}_{n} + C^{j}_{n})f^{(j)}g^{(n + 1 -j)} + C^{0}_{n + 1}f^{(0)}g^{(n + 1)}\\
+&=C^{n + 1}_{n + 1}f^{n + 1}g^{0} +  \sum_{j = 1}^{n}(C^{j}_{n + 1})f^{(j)}g^{(n + 1 -j)} + C^{0}_{n + 1}f^{(0)}g^{(n + 1)}\\
+&= \sum_{k = 0}^{n + 1}C^{k}_{n + 1}f^{(k)}g^{(n + 1-k)}
+\end{align*}
 \appendix
 \section{Demonstrations}
 \subsection{coefficients binomiaux}
