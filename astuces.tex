@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 %opening
 \title{Astuces pour l'analyse}
@@ -35,6 +36,10 @@ sin^{3}(x) &= (\frac{e^{ix} - e^{-ix}}{2})^{3}\\
 \section{Divers}
 \[\frac{1}{x(1 - x)} = \frac{1}{x} + \frac{1}{1 - x}\]
 \[|\sqrt{a} - \sqrt{b}| <= \sqrt{|a - b|}\]
+\[|sin(x)| <= |x|\]
+\section{équivalence}
+\[cos(x) - 1 = \frac{-x^2}{2}\]
+\[sin(x) = x\]
 \section[Aussi nommé Théorème de Weierstrass.]{Théorème des valeurs extrêmes}
 
 
@@ -58,6 +63,91 @@ $[a;b]$ est bornée.
 Or comme $f$ est continue \[\lim_{n \to \infty} f(x_{\phi(n)}) = f(\lim_{n \to \infty} x_{\phi(n)}) = f(c)\]
 La suite $(f(x_{\phi(n)}))_{n \in \mathbb{N}}$ converge donc vers $f(c)$. Ceci est absurde car la suite $(f(x_{\phi(n)}))_{n \in \mathbb{N}}$ est
 une sous suite de $(f(x_{n}))_{n \in \mathbb{N}}$ qui diverge.
+
+
+On en déduit que $f([a; b])$ est une partie bornée de $\mathbb{R}$
+
+
+On cherche maintenant a dèmontrer qu'il existe $c \in [a;b]$ tel que $f(c) = sup f([a; b])$
+D'aprés la définition du sup il éxiste une suite de points de $[a; b]$. $(x_{n})_{n \in \mathbb{N}}$ tel que $sup f([a; b]) > f(x_{n}) >sup f([a; b]) -\frac{1}{n}$
+D'aprés le théoreme des gendarmes :
+\[\lim_{n \to \infty} f(x_{n}) = sup f([a; b])\]
+Or comme $(x_{n})_{n \in \mathbb{N}}$ est bornée d'aprés le Théorème de bolzano-Weierstrass il existe une
+extractrice $\phi \colon \mathbb{N} \longrightarrow \mathbb{N}$ tel que $(x_{\phi(n)})_{n \in \mathbb{N}}$ converge vers une valeur $c \in [a; b]$ car 
+$[a;b]$ est bornée. Or comme f continue.
+\[f(c) = f(\lim_{n \to \infty} x_{\phi(n)}) = \lim_{n \to \infty} f(x_{\phi(n)}) = sup f([a; b])\]
+\section{Théoreme de Rolle}
+Soit $f$ une fonction continue sur $[a; b]$ et dérivable sur $]a;b[$ tel que $f(a) = f(b)$ alors il
+existe $c \in ]a;b[$ tel que $f'(c) = 0$
+
+\subsection{Démo}
+Deux cas soit $f$ constante soit pas.
+
+
+Si $f$ constante $f'(x) = 0$ $ \forall x \in ]a;b[$
+
+
+Sinon comme $f$ n'est pas constante on à $sup f([a; b]) > f(a)$ ou $min f([a; b]) < f(a)$
+supposons par exemple que $sup f([a; b]) > f(a)$ alors d'aprés Weierstrass il éxiste $c \in [a; b]$
+tel que $f(c) = sup f([a; b])$ on a $f(c) > f(a) = f(b)$ donc $c \in ]a;b[$
+\[\lim_{h \to 0^{+}} \frac{f(c + h) - f(c)}{h} \leq 0\]
+\[\lim_{h \to 0^{-}} \frac{f(c + h) - f(c)}{h} \geq 0\]
+Comme $f$ continue \[\lim_{h \to 0^{+}} \frac{f(c + h) - f(c)}{h} = \lim_{h \to 0^{-}} \frac{f(c + h) - f(c)}{h}\]
+donc $f'(c) = 0$
+\section{Théoreme des accroissements finis}
+Soit $f$ une fonction continue sur $[a; b]$ et dérivable sur $]a;b[$ alors il éxiste
+$c \in ]a;b[$ tel que $f'(c) = \frac{f(b) - f(a)}{b - a}$
+
+
+On cherche une fonction $u$ tel $u(a) = u(b)$ pour pouvoir appliquer rolle dessus. Pour ce faire on pose $u(x) = f(x) + \lambda (x - a)$.
+On a $u(a) = f(a)$ on cherche a faire que $u(b) = f(a)$.
+
+
+On veut 
+\begin{align*}
+f(a) &= f(b) + \lambda(b - a)\\
+f(a) - f(b) &= \lambda(b - a)\\
+\frac{f(a) - f(b)}{b - a} &= \lambda
+\end{align*}
+Il suffit de poser $\lambda = \frac{f(a) - f(b)}{b - a}$
+La fonction $u$ est une somme de fonction continue sur $[a;b]$ et dérivables sur $]a; b[$
+D'aprés rolle il existe $c \in ]a;b[$ tel que $u'(c) = 0$ or
+\[0 = u'(c) = f'(c) + \frac{f(a) - f(b)}{b - a}\]
+donc \[f'(c) =  \frac{f(b) - f(a)}{b - a}\]
+
+\section{théoreme de cauchy}
+Soinet $g$ et $f$ fonctions continues sur $[a; b]$ et dérivables sur $]a;b[$ tel que $g(b) - g(a) \neq 0$
+alors il existe $c \in ]a;b[$ tel que $f'(c) = g'(c)\frac{f(b) - f(a)}{g(b) - g(a)}$
+
+
+\section{démo}
+
+On cherche une fonction $u$ tel $u(a) = u(b)$ pour pouvoir appliquer rolle dessus. Pour ce faire on pose
+$u(x) = f(x) + \lambda (g(x) - g(a))$
+on a $u(a) = f(a)$
+
+
+On veut
+\begin{align*}
+f(a) &= f(b) + \lambda(g(b) - g(a))\\
+f(a) - f(b) &= \lambda(g(b) - g(a))\\
+\frac{f(a) - f(b)}{g(b) - g(a)} &= \lambda
+\end{align*}
+
+$u$ comme somme de fonctions dérivables est dérivable sur $]a;b[$ et comme somme de fonctions continues est continue sur $[a;b]$
+d'aprés rolle il existe $c \in ]a;b[$ tel $u'(c) = 0$ or
+\[0 = u'(c) = f'(c) + g'(c)\frac{f(a) - f(b)}{g(b) - g(a)}\]
+donc \[f'(c) = g'(c)\frac{f(b) - f(a)}{b - a}\]
+
+
+
+
+
+
+
+\section{Théorème de heine}
+Toute fonction continue sur $[a;b]$ intervalle de $\mathbb{R}$ est uniformément continue sur ce segment.
+
 \appendix
 \section{Demonstrations}
 \subsection{coefficients binomiaux}
@@ -68,6 +158,28 @@ une sous suite de $(f(x_{n}))_{n \in \mathbb{N}}$ qui diverge.
  &= \textstyle{n + 1 \choose k + 1}
 \end{align*}
 \[(1 + 1)^{n} = \sum_{k = 0}^{n} \textstyle{n \choose k} 1^{k}1^{n - k} = \sum_{k = 0}^{n} \textstyle{n \choose k}\]
+\subsection{divers}
+Si $a >= b$
+\begin{align*}
+ 0 &<= 2\sqrt{b}(\sqrt{a} - \sqrt{b})\\
+ 0 &<= 2\sqrt{a}\sqrt{b} -2b\\
+ a - 2\sqrt{a}\sqrt{b} + b &<=  a - b\\
+ |\sqrt{a} - \sqrt{b}|^{2} &<= \sqrt{|a - b|}^2\\
+ |\sqrt{a} - \sqrt{b}| &<= \sqrt{|a - b|}
+\end{align*}
+même idée si $b <= a$
+
+
+Pour $\forall x \in \mathbb{R}^{+}$
+\begin{align*}
+ cos(x) &<= 1\\
+ \int_{0}^{x} cos(x) dx&<= \int_{0}^{x} dx\\
+ sin(x) &<= x
+\end{align*}
+Comme $x \longrightarrow x$ et $sin(x)$ impaires $\forall x \in \mathbb{R}$ 
+\[|sin(x)| <= |x|\]
+
+
 
 
 \end{document}
